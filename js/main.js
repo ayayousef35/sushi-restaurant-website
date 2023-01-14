@@ -203,13 +203,13 @@ sr.reveal(`.about-data , .recently-data`,{origin: "right"})
 sr.reveal(`.popular-card`,{interval: 100})
 
 // loader
-// function loader(){
-//     document.querySelector('.container-loader').classList.add('fade-out');
-// }
-// function fadeOut(){
-//     setInterval(loader,4000);
-// }
-// window.onload= fadeOut;
+function loader(){
+    document.querySelector('.container-loader').classList.add('fade-out');
+}
+function fadeOut(){
+    setInterval(loader,4000);
+}
+window.onload= fadeOut;
 
 
 
