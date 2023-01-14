@@ -2,16 +2,17 @@
 const navMenu =document.getElementById("nav-menu");
 const navClose =document.getElementById("nav-close");
 const menuBar =document.getElementById("menu-bar");
+const carrt =document.getElementsByClassName('container-cart');
  
 if(menuBar){
     menuBar.addEventListener("click", () =>{
         navMenu.classList.add('show-menu')
-        console.log("hello")
     });
 } 
 if(navClose){
     navClose.addEventListener("click", () =>{
         navMenu.classList.remove('show-menu')
+        carrt.style.display="block";
     });
 } 
 //*==========Show Search Form===============*/
@@ -54,11 +55,81 @@ if(closeCart){
                    e.target.parentElement.parentElement.firstElementChild.src;
                 let pos =fullpath.indexOf("image")+5;
                 let partPath =fullpath.slice(pos);
-                console.log(partPath);
+                // console.log(partPath);
+                
+                const item ={};
+                item.img= `image${partPath}`;
+               
+                let name =
+                e.target.parentElement.parentElement .children[1].textContent;
+                // console.log(name);
+                
+                item.name=name;
+                let price =
+                e.target.parentElement.parentElement .children[3].textContent;
+                // console.log(price);
+                let finalPrice =price.slice(1).trim();
+                item.price =finalPrice;
+                // console.log(item);
+                // cart item
+                const cartItem =document.createElement("div");
+                cartItem.classList.add("cartItem");
 
+                cartItem.innerHTML=
+                ` <img src="${item.img}" alt="" class="cart-item-img">
+                <div class="item-text">
+                    <p class="cart-item-title">${item.name}</p>
+                    <span class="cart-item-price">$${item.price}</span>
+                </div>
+                <a href="#" id="cart-item-remove" class="cart-item-remove" >
+                    <i class="ri-delete-bin-5-fill"></i>
+                </a>
+            </div>`;
+
+            // const cart= document.getElementById('section-cart');
+            const total=document.querySelector (".total-container");
+
+        
+            cartSection.insertBefore(cartItem,total);
+            
+            showTotal();
             }
         });
     });
+     function showTotal(){
+        // const t=0;
+        const totals=[];
+        const items= document.querySelectorAll('.cart-item-price');
+
+        items.forEach(function(item){
+            // let itemPrice = item.textContent.slice(1)
+            totals.push(parseFloat(item.textContent.slice(1)));
+
+            
+
+        });
+        // console.log(totals);
+        const totalMoney =totals.reduce(function(totals,item){
+            totals+=item
+            return totals;
+        })
+      
+        console.log(totalMoney);
+        const finalMoney =totalMoney;
+        document.getElementById("total").textContent=finalMoney;
+        // document.getElementById("cart-count").textContent=totals.length;
+        const cartCount=document.getElementById("cart-count");
+        cartCount.classList.add("show-count")
+        cartCount.textContent=totals.length;
+       
+
+       
+        
+      
+    
+     }
+      /* Remove Cart  Item*/ 
+   
 
 })();
 
@@ -125,7 +196,6 @@ const sr= ScrollReveal({
     distance :"60px",
     duration: 2500,
     delay: 400,
-    // reset:true //a
 })
 sr.reveal(`.image-home,.newsletter-container,.col,.footer-img`)
 sr.reveal(`.content`,{origin: "bottom"})
@@ -134,13 +204,13 @@ sr.reveal(`.about-data , .recently-data`,{origin: "right"})
 sr.reveal(`.popular-card`,{interval: 100})
 
 // loader
-function loader(){
-    document.querySelector('.container-loader').classList.add('fade-out');
-}
-function fadeOut(){
-    setInterval(loader,4000);
-}
-window.onload= fadeOut;
+// function loader(){
+//     document.querySelector('.container-loader').classList.add('fade-out');
+// }
+// function fadeOut(){
+//     setInterval(loader,4000);
+// }
+// window.onload= fadeOut;
 
 
 

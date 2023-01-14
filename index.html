@@ -41,7 +41,10 @@
             <div class="icons">
                 <i class="ri-search-line search-icon" id="search-icon"></i>
                 <i class="ri-moon-line  moon-icon" id="moon-icon" ></i>
-                <i class="ri-shopping-cart-line" id="cart"></i>
+                <i class="container-cart"> 
+                    <i class="ri-shopping-cart-line" id="cart"></i>
+                    <span id="cart-count" class="count"></span>
+                </i>
                 <i class="ri-apps-2-line" id="menu-bar"></i>
             </div>
         </nav>
@@ -55,8 +58,12 @@
     </form>
     <!-- section cart -->
     <div class="section-cart" id="section-cart">
-        <div id="cartItem">Your Cart Is Empty..</div>
-        <div class="foot">
+    
+         <div id="cartItem" class="cartItem">
+         
+            
+        </div>
+        <div class="total-container">
             <h3>Total:</h3>
             <h2 id="total">$ 0.00</h2>
         </div>
@@ -120,7 +127,7 @@
                     <img src="image/popular-1.png" alt="popular image" class="popular-image">
                     <h3 class="popular-name">Onigiri Rols</h3>
                     <span class="popular-desc">Japanese Dish</span>
-                    <span class="popular-price">10.99</span>
+                    <span class="popular-price">$10.99</span>
                     <button class="popular-button" >
                         <i class="ri-shopping-bag-line"></i>
                     </button>
@@ -129,7 +136,7 @@
                     <img src="image/popular-2.png" alt="popular image" class="popular-image">
                     <h3 class="popular-name">Spring  Rolls</h3>
                     <span class="popular-desc">Japanese Dish</span>
-                    <span class="popular-price">15.99</span>
+                    <span class="popular-price">$15.99</span>
                     <button class="popular-button"  >
                         <i class="ri-shopping-bag-line"></i>
                     </button>
@@ -138,7 +145,7 @@
                     <img src="image/popular-3.png" alt="popular image" class="popular-image">
                     <h3 class="popular-name">Sushi  Rolls</h3>
                     <span class="popular-desc">Japanese Dish</span>
-                    <span class="popular-price">19.99</span>
+                    <span class="popular-price">$19.99</span>
                     <button class="popular-button" >
                         <i class="ri-shopping-bag-line"></i>
                     </button>
@@ -264,9 +271,9 @@
         <i class="ri-arrow-up-line"></i>
     </a>
     <!-- =======loader======= -->
-    <div class="container-loader">
+    <!-- <div class="container-loader">
         <img src="image/giphy.gif" alt="">
-    </div>
+    </div> -->
     <!-- Scroll Reveal js -->
     <script src="js/scrollreveal.min.js"></script>
 
