@@ -120,10 +120,7 @@ if(closeCart){
         const cartCount=document.getElementById("cart-count");
         cartCount.classList.add("show-count")
         cartCount.textContent=totals.length;
-       
-
-       
-        
+   
       
     
      }
