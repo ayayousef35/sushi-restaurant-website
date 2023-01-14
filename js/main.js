@@ -12,7 +12,6 @@ if(menuBar){
 if(navClose){
     navClose.addEventListener("click", () =>{
         navMenu.classList.remove('show-menu')
-        carrt.style.display="block";
     });
 } 
 //*==========Show Search Form===============*/
