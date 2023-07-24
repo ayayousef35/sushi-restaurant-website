@@ -42,6 +42,50 @@ if(closeCart){
         cartSection.classList.remove('show-cart')
     })
 }
+// ////////////////// /////////////////////////////////
+// let allProdects = document.querySelector('popular-container')
+// let products =[
+//     {
+//         id:1,
+//         title:"Onigiri Rols",
+//         price: "$10.99",
+//         imageUrl:"image/popular-1.png"
+//     },
+//     {
+//         id:2,
+//         title:"Spring  Rolls",
+//         price: "$15.99",
+//         imageUrl:"image/popular-2.png"
+//     },
+//     {
+//         id:3,
+//         title:"Sushi  Rolls",
+//         price: "$19.99",
+//         imageUrl:"image/popular-3.png"
+//     };
+// ]
+// function drawItems() {
+//     let itemPopular =products.map((item) =>{
+//         return` <article class="popular-card">
+//         <img src="${item.imageUrl}" alt="popular image" class="popular-image">
+//         <h3 class="popular-name">${item.title}</h3>
+//         <span class="popular-desc">Japanese Dish</span>
+//         <span class="popular-price">${item.price}</span>
+//         <button class="popular-button" >
+//             <i class="ri-shopping-bag-line"></i>
+//         </button>
+//     </article>`
+//     })
+//     allProdects.innerHTML = itemPopular;
+    
+// }
+// drawItems()
+
+
+
+
+
+
 /*=========Add Diches Of The Cart=========*/ 
 (function(){
     const popularBtn =document.querySelectorAll('.popular-button');
@@ -80,10 +124,11 @@ if(closeCart){
                     <p class="cart-item-title">${item.name}</p>
                     <span class="cart-item-price">$${item.price}</span>
                 </div>
-                <a href="#" id="cart-item-remove" class="cart-item-remove" >
+                <a href="#" class="cart-item-remove" >
                     <i class="ri-delete-bin-5-fill"></i>
                 </a>
             </div>`;
+            // //////
 
             // const cart= document.getElementById('section-cart');
             const total=document.querySelector (".total-container");
@@ -91,22 +136,23 @@ if(closeCart){
         
             cartSection.insertBefore(cartItem,total);
             
+            
             showTotal();
             }
+            
         });
+
     });
      function showTotal(){
         // const t=0;
         const totals=[];
         const items= document.querySelectorAll('.cart-item-price');
-
+        const removeCartItem =document.querySelectorAll('.cart-item-remove');
         items.forEach(function(item){
             // let itemPrice = item.textContent.slice(1)
             totals.push(parseFloat(item.textContent.slice(1)));
-
-            
-
         });
+
         // console.log(totals);
         const totalMoney =totals.reduce(function(totals,item){
             totals+=item
@@ -120,14 +166,18 @@ if(closeCart){
         const cartCount=document.getElementById("cart-count");
         cartCount.classList.add("show-count")
         cartCount.textContent=totals.length;
+    
+            removeCartItem.addEventListener('click', function (event){
+                console.log(event.target.parentElement);
+            });
+     
    
       
     
-     }
-      /* Remove Cart  Item*/ 
-   
+     } 
 
 })();
+
 
 /*=============Scroll sections active link========== */
 const sections= document.querySelectorAll('section[id]')

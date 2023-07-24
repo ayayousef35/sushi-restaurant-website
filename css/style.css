@@ -27,6 +27,11 @@
     --font-semi-bold:600;
 }
 /* Base */
+.remix {
+    width: 24px;
+    height: 24px;
+    fill: #333;
+  }
 *{
     padding: 0;
     margin: 0;
